@@ -1,0 +1,757 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    background: #f8f6f2;
+    color: #2b2b2b;
+    overflow-x: hidden;
+}
+
+button {
+    font: inherit;
+}
+
+/* =========================================================
+   BOTONES GENERALES
+========================================================= */
+
+.boton-principal,
+.boton-siguiente,
+.boton-volver {
+    padding: 14px 30px;
+    border: none;
+    border-radius: 40px;
+    color: #ffffff;
+    font-weight: 700;
+    cursor: pointer;
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.boton-principal,
+.boton-siguiente {
+    background: #ff7a7a;
+    box-shadow: 0 15px 30px rgba(255, 122, 122, 0.3);
+}
+
+.boton-volver {
+    background: #2b2b2b;
+}
+
+.boton-principal:hover,
+.boton-siguiente:hover {
+    transform: translateY(-4px);
+    background: #4f7df3;
+    box-shadow: 0 18px 35px rgba(79, 125, 243, 0.3);
+}
+
+.boton-volver:hover {
+    transform: translateY(-4px);
+    background: #ff7a7a;
+}
+
+/* =========================================================
+   EDITOR INTERACTIVO DE PRODUCTO
+========================================================= */
+
+.pantalla-producto {
+    display: block;
+    min-height: 100vh;
+    padding: 110px 4% 60px;
+    text-align: left;
+    background:
+        radial-gradient(circle at top left, rgba(255, 68, 128, 0.12), transparent 35%),
+        radial-gradient(circle at bottom right, rgba(143, 73, 255, 0.12), transparent 35%),
+        #0f1015;
+    color: #ffffff;
+}
+
+.pantalla-producto h2,
+.pantalla-producto h3,
+.pantalla-producto p {
+    color: inherit;
+}
+
+.editor-producto {
+    width: min(1450px, 100%);
+    margin: 0 auto;
+}
+
+.encabezado-editor {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 25px;
+    margin-bottom: 28px;
+}
+
+.editor-etiqueta {
+    margin: 0 0 8px;
+    color: #ff4f91 !important;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.encabezado-editor h2 {
+    margin: 0;
+    color: #ffffff;
+    font-size: clamp(2rem, 4vw, 3.7rem);
+    line-height: 1;
+}
+
+.editor-descripcion {
+    margin: 12px 0 0;
+    color: #aeb0bd !important;
+    font-size: 1rem;
+}
+
+.editor-contenido {
+    display: grid;
+    grid-template-columns: 220px minmax(0, 1fr) 220px;
+    gap: 22px;
+    align-items: stretch;
+}
+
+.panel-sabores,
+.panel-controles,
+.panel-fondo,
+.panel-elementos,
+.panel-foto {
+    background: rgba(28, 29, 38, 0.94);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 22px;
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.25);
+}
+
+.panel-sabores,
+.panel-controles {
+    padding: 20px;
+}
+
+.panel-sabores h3,
+.panel-controles h3,
+.panel-fondo h3,
+.panel-elementos h3,
+.panel-foto h3 {
+    margin: 0 0 17px;
+    color: #ffffff;
+    font-size: 0.95rem;
+}
+
+.panel-sabores {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.boton-sabor {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    width: 100%;
+    min-height: 60px;
+    padding: 9px;
+    color: #ffffff;
+    background: #242630;
+    border: 1px solid transparent;
+    border-radius: 15px;
+    cursor: pointer;
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        background-color 0.25s ease;
+}
+
+.boton-sabor:hover {
+    transform: translateX(4px);
+    background: #2d2f3b;
+}
+
+.boton-sabor.activo {
+    background: rgba(255, 79, 145, 0.13);
+    border-color: #ff4f91;
+    box-shadow: 0 0 0 3px rgba(255, 79, 145, 0.08);
+}
+
+.boton-sabor img {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+    pointer-events: none;
+}
+
+.boton-sabor span {
+    font-size: 0.88rem;
+    font-weight: 600;
+}
+
+.zona-escenario {
+    min-width: 0;
+}
+
+.escenario-producto {
+    position: relative;
+    width: 100%;
+    min-height: 580px;
+    overflow: hidden;
+    background-color: #f7b6c4;
+    border-radius: 28px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow:
+        0 25px 60px rgba(0, 0, 0, 0.35),
+        inset 0 0 50px rgba(255, 255, 255, 0.1);
+    transition: background-color 0.35s ease;
+    isolation: isolate;
+}
+
+.escenario-producto::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background:
+        radial-gradient(circle at 25% 20%, rgba(255, 255, 255, 0.27), transparent 25%),
+        radial-gradient(circle at 75% 75%, rgba(255, 255, 255, 0.18), transparent 28%);
+}
+
+.producto-principal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: min(42%, 340px);
+    max-height: 70%;
+    object-fit: contain;
+    transform: translate(-50%, -50%);
+    filter: drop-shadow(0 22px 18px rgba(0, 0, 0, 0.22));
+    user-select: none;
+    pointer-events: none;
+    z-index: 5;
+}
+
+.ayuda-editor {
+    margin: 12px 0 0;
+    color: #9295a2 !important;
+    font-size: 0.83rem;
+    text-align: center;
+}
+
+.elemento-escenario {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 120px;
+    max-width: 45%;
+    max-height: 45%;
+    object-fit: contain;
+    cursor: grab;
+    user-select: none;
+    touch-action: none;
+    transform: translate(-50%, -50%) rotate(0deg);
+    filter: drop-shadow(0 12px 10px rgba(0, 0, 0, 0.22));
+}
+
+.elemento-escenario:active {
+    cursor: grabbing;
+}
+
+.elemento-escenario.seleccionado {
+    outline: 3px dashed #ffffff;
+    outline-offset: 6px;
+    filter:
+        drop-shadow(0 12px 10px rgba(0, 0, 0, 0.22))
+        drop-shadow(0 0 8px rgba(255, 79, 145, 0.8));
+}
+
+#nombreElementoSeleccionado {
+    min-height: 42px;
+    margin: 0 0 15px;
+    padding: 12px;
+    color: #c7c9d3 !important;
+    background: #23252e;
+    border-radius: 12px;
+    font-size: 0.86rem;
+}
+
+.controles-elemento {
+    display: grid;
+    gap: 10px;
+}
+
+.controles-elemento button {
+    width: 100%;
+    padding: 11px 10px;
+    color: #ffffff;
+    background: #2a2c36;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 11px;
+    cursor: pointer;
+    transition:
+        background-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.controles-elemento button:hover {
+    background: #393b48;
+    transform: translateY(-2px);
+}
+
+.controles-elemento .boton-eliminar {
+    color: #ff9daf;
+    background: rgba(255, 62, 99, 0.11);
+    border-color: rgba(255, 62, 99, 0.25);
+}
+
+.controles-elemento .boton-eliminar:hover {
+    color: #ffffff;
+    background: #d9365d;
+}
+
+.panel-inferior-editor {
+    display: grid;
+    grid-template-columns: 1fr 1.65fr 0.75fr;
+    gap: 22px;
+    margin-top: 22px;
+}
+
+.panel-fondo,
+.panel-elementos,
+.panel-foto {
+    padding: 20px;
+}
+
+.colores-fondo {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 18px;
+}
+
+.color-fondo {
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    border: 3px solid transparent;
+    border-radius: 50%;
+    cursor: pointer;
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.color-fondo:hover {
+    transform: scale(1.12);
+}
+
+.color-fondo.activo {
+    border-color: #ffffff;
+    box-shadow: 0 0 0 3px rgba(255, 79, 145, 0.7);
+}
+
+.panel-fondo label {
+    display: block;
+    margin-bottom: 8px;
+    color: #aeb0bd;
+    font-size: 0.8rem;
+}
+
+.selector-color-personalizado {
+    display: grid;
+    grid-template-columns: 45px minmax(0, 1fr) auto;
+    gap: 8px;
+}
+
+#colorPersonalizado {
+    width: 45px;
+    height: 42px;
+    padding: 3px;
+    background: #252732;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 9px;
+    cursor: pointer;
+}
+
+#codigoHex {
+    min-width: 0;
+    height: 42px;
+    padding: 0 11px;
+    color: #ffffff;
+    background: #252732;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 9px;
+    outline: none;
+}
+
+#codigoHex:focus {
+    border-color: #ff4f91;
+}
+
+#botonAplicarHex {
+    height: 42px;
+    padding: 0 14px;
+    color: #ffffff;
+    background: #ff4f91;
+    border: 0;
+    border-radius: 9px;
+    cursor: pointer;
+}
+
+.categorias-elementos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+.categoria-elemento {
+    padding: 8px 13px;
+    color: #b4b6c0;
+    background: #272934;
+    border: 1px solid transparent;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 0.78rem;
+    transition: 0.2s ease;
+}
+
+.categoria-elemento:hover {
+    color: #ffffff;
+}
+
+.categoria-elemento.activa {
+    color: #ffffff;
+    background: #ff4f91;
+}
+
+.galeria-elementos {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(80px, 1fr));
+    gap: 10px;
+    max-height: 175px;
+    overflow-y: auto;
+    padding-right: 4px;
+}
+
+.galeria-elementos::-webkit-scrollbar {
+    width: 7px;
+}
+
+.galeria-elementos::-webkit-scrollbar-thumb {
+    background: #484a57;
+    border-radius: 999px;
+}
+
+.tarjeta-elemento {
+    min-height: 120px;
+    padding: 9px;
+    color: #ffffff;
+    background: #252731;
+    border: 1px solid transparent;
+    border-radius: 14px;
+    cursor: pointer;
+    transition:
+        transform 0.22s ease,
+        border-color 0.22s ease,
+        background-color 0.22s ease;
+}
+
+.tarjeta-elemento:hover {
+    transform: translateY(-4px);
+    background: #30323e;
+    border-color: rgba(255, 79, 145, 0.65);
+}
+
+.tarjeta-elemento img {
+    display: block;
+    width: 100%;
+    height: 76px;
+    margin-bottom: 5px;
+    object-fit: contain;
+    pointer-events: none;
+}
+
+.tarjeta-elemento span {
+    font-size: 0.72rem;
+}
+
+.tarjeta-elemento.oculto {
+    display: none;
+}
+
+.panel-foto {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.panel-foto .boton-principal {
+    width: 100%;
+    padding: 15px;
+    color: #ffffff;
+    background: linear-gradient(135deg, #ff4f91, #954cff);
+    border: none;
+    border-radius: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 12px 28px rgba(255, 79, 145, 0.22);
+    transition:
+        transform 0.22s ease,
+        box-shadow 0.22s ease;
+}
+
+.panel-foto .boton-principal:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 17px 32px rgba(255, 79, 145, 0.34);
+}
+
+.panel-foto p {
+    margin: 12px 0 0;
+    color: #9799a6 !important;
+    font-size: 0.8rem;
+    line-height: 1.5;
+}
+
+.pantalla-producto .boton-volver {
+    padding: 12px 20px;
+    border-radius: 12px;
+    cursor: pointer;
+    color: #ffffff;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.flash-fotografia {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    pointer-events: none;
+    background: #ffffff;
+    animation: efectoFlash 0.6s ease forwards;
+}
+
+@keyframes efectoFlash {
+    0% {
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+/* =========================================================
+   RESPONSIVE GENERAL Y PRODUCTO
+========================================================= */
+
+@media (max-width: 1100px) {
+    .editor-contenido {
+        grid-template-columns: 180px minmax(0, 1fr);
+    }
+
+    .panel-controles {
+        grid-column: 1 / -1;
+    }
+
+    .controles-elemento {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .panel-inferior-editor {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .panel-foto {
+        grid-column: 1 / -1;
+    }
+}
+
+@media (max-width: 780px) {
+    .pantalla-producto {
+        padding: 155px 16px 45px;
+    }
+
+    .encabezado-editor {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .editor-contenido {
+        grid-template-columns: 1fr;
+    }
+
+    .panel-sabores {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .panel-sabores h3 {
+        grid-column: 1 / -1;
+    }
+
+    .escenario-producto {
+        min-height: 480px;
+    }
+
+    .producto-principal {
+        width: min(58%, 280px);
+    }
+
+    .controles-elemento {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .panel-inferior-editor {
+        grid-template-columns: 1fr;
+    }
+
+    .panel-foto {
+        grid-column: auto;
+    }
+
+    .galeria-elementos {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .panel-sabores {
+        grid-template-columns: 1fr;
+    }
+
+    .escenario-producto {
+        min-height: 400px;
+        border-radius: 20px;
+    }
+
+    .galeria-elementos {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .selector-color-personalizado {
+        grid-template-columns: 42px 1fr;
+    }
+
+    #botonAplicarHex {
+        grid-column: 1 / -1;
+    }
+}
+.producto-principal{
+    pointer-events:auto;
+    cursor:pointer;
+}
+
+.producto-principal.seleccionado{
+    outline:3px dashed white;
+    outline-offset:8px;
+}
+.caja-seleccion {
+    position: absolute;
+    z-index: 200;
+    border: 2px solid #ffffff;
+    border-radius: 6px;
+    pointer-events: none;
+    box-shadow:
+        0 0 0 2px rgba(255, 79, 145, 0.8),
+        0 0 18px rgba(255, 79, 145, 0.35);
+}
+
+.caja-seleccion.oculto {
+    display: none;
+}
+
+.control-redimensionar,
+.control-rotar {
+    position: absolute;
+    display: grid;
+    place-items: center;
+    padding: 0;
+    color: #ffffff;
+    background: #ff4f91;
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+    cursor: pointer;
+    pointer-events: auto;
+    touch-action: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.28);
+}
+
+.control-redimensionar {
+    width: 18px;
+    height: 18px;
+}
+
+.control-redimensionar.sup-izq {
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -50%);
+    cursor: nwse-resize;
+}
+
+.control-redimensionar.sup-der {
+    top: 0;
+    right: 0;
+    transform: translate(50%, -50%);
+    cursor: nesw-resize;
+}
+
+.control-redimensionar.inf-izq {
+    bottom: 0;
+    left: 0;
+    transform: translate(-50%, 50%);
+    cursor: nesw-resize;
+}
+
+.control-redimensionar.inf-der {
+    right: 0;
+    bottom: 0;
+    transform: translate(50%, 50%);
+    cursor: nwse-resize;
+}
+
+.control-rotar {
+    width: 30px;
+    height: 30px;
+    top: -48px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.control-rotar::after {
+    content: "";
+    position: absolute;
+    width: 2px;
+    height: 18px;
+    top: 28px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #ffffff;
+    pointer-events: none;
+}
+
+/* La caja sustituye el contorno punteado anterior */
+
+.elemento-escenario.seleccionado,
+.producto-principal.seleccionado {
+    outline: none;
+}

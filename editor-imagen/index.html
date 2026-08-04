@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editor de imagen | Galletas Amor</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="pantalla-producto">
+
+<div class="editor-producto">
+
+        <div class="encabezado-editor">
+            <div>
+                <p class="editor-etiqueta">Fotografía de producto</p>
+                <h2>Personaliza tu foto</h2>
+                <p class="editor-descripcion">
+                    Elige un sabor, cambia el fondo y organiza los elementos.
+                </p>
+            </div>
+
+            <button
+                type="button"
+                id="botonReiniciarEditor"
+                class="boton-volver"
+            >
+                Reiniciar
+            </button>
+        </div>
+
+        <div class="editor-contenido">
+
+            <aside class="panel-sabores">
+
+                <h3>1. Elige tu sabor</h3>
+
+                <button
+    type="button"
+    class="boton-sabor activo"
+    data-sabor="fresa"
+    data-producto="img/amor-fresas.png"
+>
+    <img
+        src="img/amor-fresas.png"
+        alt="Galletas Amor sabor fresa"
+    >
+    <span>Fresa</span>
+</button>
+
+<button
+    type="button"
+    class="boton-sabor"
+    data-sabor="chocolate"
+    data-producto="img/amor-chocolate.png"
+>
+    <img
+        src="img/amor-chocolate.png"
+        alt="Galletas Amor sabor chocolate"
+    >
+    <span>Chocolate</span>
+</button>
+
+<button
+    type="button"
+    class="boton-sabor"
+    data-sabor="limon"
+    data-producto="img/amor-limon.png"
+>
+    <img
+        src="img/amor-limon.png"
+        alt="Galletas Amor sabor limón"
+    >
+    <span>Limón</span>
+</button>
+
+<button
+    type="button"
+    class="boton-sabor"
+    data-sabor="vainilla"
+    data-producto="img/amor-vainilla.png"
+>
+    <img
+        src="img/amor-vainilla.png"
+        alt="Galletas Amor sabor vainilla"
+    >
+    <span>Vainilla</span>
+</button>
+
+<button
+    type="button"
+    class="boton-sabor"
+    data-sabor="naranja"
+    data-producto="img/amor.naranja.png"
+>
+    <img
+        src="img/amor.naranja.png"
+        alt="Galletas Amor sabor naranja"
+    >
+    <span>Naranja</span>
+</button>
+
+            </aside>
+
+            <!-- ESCENARIO -->
+            <div class="zona-escenario">
+
+                <div id="escenarioProducto" class="escenario-producto">
+
+                    <img
+                        id="productoPrincipal"
+                        class="producto-principal"
+                        src="img/amor-fresas.png"
+                        alt="Producto principal"
+                        draggable="false"
+                    >
+
+                </div>
+
+                <p class="ayuda-editor">
+                    Arrastra los elementos para moverlos dentro del escenario.
+                </p>
+
+            </div>
+
+            <!-- CONTROLES DEL ELEMENTO -->
+            <aside class="panel-controles">
+
+                <h3>Elemento seleccionado</h3>
+
+                <p id="nombreElementoSeleccionado">
+                    Ninguno
+                </p>
+
+                <div class="controles-elemento">
+
+                    <button
+                        type="button"
+                        id="botonAumentar"
+                    >
+                        Más grande
+                    </button>
+
+                    <button
+                        type="button"
+                        id="botonReducir"
+                    >
+                        Más pequeño
+                    </button>
+
+                    <button
+                        type="button"
+                        id="botonGirar"
+                    >
+                        Girar
+                    </button>
+
+                    <button
+                        type="button"
+                        id="botonFrente"
+                    >
+                        Traer delante
+                    </button>
+
+                    <button
+                        type="button"
+                        id="botonAtras"
+                    >
+                        Enviar atrás
+                    </button>
+
+                    <button
+                        type="button"
+                        id="botonEliminarElemento"
+                        class="boton-eliminar"
+                    >
+                        Eliminar
+                    </button>
+
+                </div>
+
+            </aside>
+
+        </div>
+
+        <!-- PANEL INFERIOR -->
+        <div class="panel-inferior-editor">
+
+            <!-- CAMBIAR FONDO -->
+            <div class="panel-fondo">
+
+                <h3>2. Cambiar fondo</h3>
+
+                <div class="colores-fondo">
+
+                    <button
+                        type="button"
+                        class="color-fondo activo"
+                        data-color="#f7b6c4"
+                        style="background-color: #f7b6c4;"
+                        aria-label="Fondo rosado"
+                    ></button>
+
+                    <button
+                        type="button"
+                        class="color-fondo"
+                        data-color="#f7ead7"
+                        style="background-color: #f7ead7;"
+                        aria-label="Fondo beige"
+                    ></button>
+
+                    <button
+                        type="button"
+                        class="color-fondo"
+                        data-color="#f7df91"
+                        style="background-color: #f7df91;"
+                        aria-label="Fondo amarillo"
+                    ></button>
+
+                    <button
+                        type="button"
+                        class="color-fondo"
+                        data-color="#b8d894"
+                        style="background-color: #b8d894;"
+                        aria-label="Fondo verde"
+                    ></button>
+
+                    <button
+                        type="button"
+                        class="color-fondo"
+                        data-color="#aed6df"
+                        style="background-color: #aed6df;"
+                        aria-label="Fondo azul"
+                    ></button>
+
+                    <button
+                        type="button"
+                        class="color-fondo"
+                        data-color="#c8b2d9"
+                        style="background-color: #c8b2d9;"
+                        aria-label="Fondo morado"
+                    ></button>
+
+                </div>
+
+                <label for="colorPersonalizado">
+                    Color personalizado
+                </label>
+
+                <div class="selector-color-personalizado">
+
+                    <input
+                        type="color"
+                        id="colorPersonalizado"
+                        value="#f7b6c4"
+                    >
+
+                    <input
+                        type="text"
+                        id="codigoHex"
+                        value="#f7b6c4"
+                        maxlength="7"
+                        placeholder="#f7b6c4"
+                    >
+
+                    <button
+                        type="button"
+                        id="botonAplicarHex"
+                    >
+                        Aplicar
+                    </button>
+
+                </div>
+
+            </div>
+
+            <!-- AGREGAR ELEMENTOS -->
+            <div class="panel-elementos">
+
+                <h3>3. Agregar elementos</h3>
+
+                <div class="categorias-elementos">
+
+                    <button
+                        type="button"
+                        class="categoria-elemento activa"
+                        data-categoria="fresa"
+                    >
+                        Fresas
+                    </button>
+
+                    <button
+                        type="button"
+                        class="categoria-elemento"
+                        data-categoria="chocolate"
+                    >
+                        Chocolate
+                    </button>
+
+                    <button
+                        type="button"
+                        class="categoria-elemento"
+                        data-categoria="limon"
+                    >
+                        Limón
+                    </button>
+
+                    <button
+                        type="button"
+                        class="categoria-elemento"
+                        data-categoria="naranja"
+                    >
+                        Naranja
+                    </button>
+
+                    <button
+                        type="button"
+                        class="categoria-elemento"
+                        data-categoria="vainilla"
+                    >
+                        Vainilla
+                    </button>
+
+                </div>
+
+                <div id="galeriaElementos" class="galeria-elementos">
+
+                    <button
+                        type="button"
+                        class="tarjeta-elemento"
+                        data-categoria="fresa"
+                        data-imagen="img/fresa-1.png"
+                        data-nombre="Fresa 1"
+                    >
+                        <img src="img/fresa-1.png" alt="Fresa 1">
+                        <span>Fresa 1</span>
+                    </button>
+
+                    <button
+                        type="button"
+                        class="tarjeta-elemento"
+                        data-categoria="fresa"
+                        data-imagen="img/fresa-2.png"
+                        data-nombre="Fresa 2"
+                    >
+                        <img src="img/fresa-2.png" alt="Fresa 2">
+                        <span>Fresa 2</span>
+                    </button>
+
+                    <button
+                        type="button"
+                        class="tarjeta-elemento"
+                        data-categoria="fresa"
+                        data-imagen="img/fresa-3.png"
+                        data-nombre="Fresa 3"
+                    >
+                        <img src="img/fresa-3.png" alt="Fresa 3">
+                        <span>Fresa 3</span>
+                    </button>
+
+                    <button
+                        type="button"
+                        class="tarjeta-elemento"
+                        data-categoria="fresa"
+                        data-imagen="img/fresa-4.png"
+                        data-nombre="Fresa 4"
+                    >
+                        <img src="img/fresa-4.png" alt="Fresa 4">
+                        <span>Fresa 4</span>
+                    </button>
+
+                    <button
+                        type="button"
+                        class="tarjeta-elemento oculto"
+                        data-categoria="chocolate"
+                        data-imagen="img/chocolate-1.png"
+                        data-nombre="Chocolate 1"
+                    >
+                        <img src="img/chocolate-1.png" alt="Chocolate 1">
+                        <span>Chocolate 1</span>
+                    </button>
+
+                    <button
+                        type="button"
+                        class="tarjeta-elemento oculto"
+                        data-categoria="chocolate"
+                        data-imagen="img/chocolate-2.png"
+                        data-nombre="Chocolate 2"
+                    >
+                        <img src="img/chocolate-2.png" alt="Chocolate 2">
+                        <span>Chocolate 2</span>
+                    </button>
+
+                    <button
+                        type="button"
+                        class="tarjeta-elemento oculto"
+                        data-categoria="chocolate"
+                        data-imagen="img/chocolate-3.png"
+                        data-nombre="Chocolate 3"
+                    >
+                        <img src="img/chocolate-3.png" alt="Chocolate 3">
+                        <span>Chocolate 3</span>
+                    </button>
+
+                    <button
+                        type="button"
+                        class="tarjeta-elemento oculto"
+                        data-categoria="limon"
+                        data-imagen="img/limon-1.png"
+                        data-nombre="Limón 1"
+                    >
+                        <img src="img/limon-1.png" alt="Limón 1">
+                        <span>Limón 1</span>
+                    </button>
+
+                    <button
+                        type="button"
+                        class="tarjeta-elemento oculto"
+                        data-categoria="limon"
+                        data-imagen="img/limon-2.png"
+                        data-nombre="Limón 2"
+                    >
+                        <img src="img/limon-2.png" alt="Limón 2">
+                        <span>Limón 2</span>
+                    </button>
+
+                    <button
+                        type="button"
+                        class="tarjeta-elemento oculto"
+                        data-categoria="limon"
+                        data-imagen="img/limon-3.png"
+                        data-nombre="Limón 3"
+                    >
+                        <img src="img/limon-3.png" alt="Limón 3">
+                        <span>Limón 3</span>
+                    </button>
+
+                    <button
+                        type="button"
+                        class="tarjeta-elemento oculto"
+                        data-categoria="naranja"
+                        data-imagen="img/naranja-1.png"
+                        data-nombre="Naranja 1"
+                    >
+                        <img src="img/naranja-1.png" alt="Naranja 1">
+                        <span>Naranja 1</span>
+                    </button>
+
+                    <button
+                        type="button"
+                        class="tarjeta-elemento oculto"
+                        data-categoria="naranja"
+                        data-imagen="img/naranja-2.png"
+                        data-nombre="Naranja 2"
+                    >
+                        <img src="img/naranja-2.png" alt="Naranja 2">
+                        <span>Naranja 2</span>
+                    </button>
+
+                    <button
+                        type="button"
+                        class="tarjeta-elemento oculto"
+                        data-categoria="vainilla"
+                        data-imagen="img/vainilla-1.png"
+                        data-nombre="Vainilla 1"
+                    >
+                        <img src="img/vainilla-1.png" alt="Vainilla 1">
+                        <span>Vainilla 1</span>
+                    </button>
+
+                    <button
+                        type="button"
+                        class="tarjeta-elemento oculto"
+                        data-categoria="vainilla"
+                        data-imagen="img/vainilla-2.png"
+                        data-nombre="Vainilla 2"
+                    >
+                        <img src="img/vainilla-2.png" alt="Vainilla 2">
+                        <span>Vainilla 2</span>
+                    </button>
+
+                </div>
+
+            </div>
+
+            <!-- TOMAR FOTO -->
+            <div class="panel-foto">
+
+                <h3>4. Finalizar composición</h3>
+
+                <button
+                    type="button"
+                    id="botonTomarFoto"
+                    class="boton-principal"
+                >
+                    Tomar foto
+                </button>
+
+                <p>
+                    Captura tu composición como una fotografía comercial.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

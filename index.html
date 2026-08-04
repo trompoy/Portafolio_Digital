@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>EXPOVISUAL | Portafolio digital de fotografía</title>
+    <link href="styles.css" rel="stylesheet" />
+</head>
+
+<body>
+    <main class="pantalla portada-inicial" id="inicioExpovisual">
+        <div class="portada-inicial-fondo"></div>
+        <div class="portada-inicial-orbe orbe-a"></div>
+        <div class="portada-inicial-orbe orbe-b"></div>
+        <header class="portada-inicial-cabecera">
+            <img alt="Logo EXPOVISUAL" class="portada-inicial-logo" src="img/expo.png" />
+            <span>PORTAFOLIO FOTOGRÁFICO · 2026</span>
+        </header>
+        <section class="portada-inicial-contenido">
+            <span class="portada-inicial-etiqueta">Exposición digital interactiva</span>
+            <h1>EXPO<span>VISUAL</span></h1>
+            <p>Producto, gastronomía y retrato reunidos en una experiencia visual.</p>
+            <button class="boton-abrir-proyecto" id="abrirProyecto" type="button">
+                Abrir proyecto <span>→</span>
+            </button>
+        </section>
+        <footer class="portada-inicial-pie">
+            <span>Desplázate con libertad</span>
+            <span>Diseño y fotografía</span>
+        </footer>
+    </main>
+
+    <main class="pantalla inicio-expovisual menu-proyectos oculto con-navegacion" id="menuProyectos">
+        <div class="inicio-grano"></div>
+        <div class="inicio-orbe inicio-orbe-1"></div>
+        <div class="inicio-orbe inicio-orbe-2"></div>
+        <header class="inicio-cabecera">
+            <div class="inicio-cabecera-marca">
+                <img alt="Logo EXPOVISUAL" class="inicio-logo" src="img/expo@2400x.png" />
+                <button class="boton-inicio-casa" id="volverPortadaInicial" type="button">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 11.5 12 4l9 7.5"></path>
+                        <path d="M5.5 9.5V20a1 1 0 0 0 1 1H10v-6h4v6h3.5a1 1 0 0 0 1-1V9.5"></path>
+                    </svg>
+                    Inicio
+                </button>
+            </div>
+            <div class="inicio-sello">PORTAFOLIO DIGITAL · 2026</div>
+        </header>
+        <section class="inicio-hero">
+            <div class="inicio-presentacion">
+                <span class="inicio-etiqueta">Exposición fotográfica interactiva</span>
+                <h1>Elige cómo quieres <strong>mirar.</strong></h1>
+                <p>Escoge una categoría y recorre el proyecto a tu ritmo.</p>
+                <div class="inicio-indicacion"><span></span> Selecciona un proyecto</div>
+            </div>
+            <div aria-label="Categorías del portafolio" class="galerias-expovisual">
+                <button class="galeria-card galeria-producto" id="abrirProducto" type="button">
+                    <span class="galeria-numero">01</span>
+                    <div class="galeria-visual visual-producto">
+                        <img alt="Proyecto Galletas Amor" src="img/logo-amor.png" />
+                    </div>
+                    <div class="galeria-info">
+                        <span>Fotografía de producto</span>
+                        <h2>Galletas Amor</h2>
+                        <p>Composición comercial, sabores y fondos personalizables.</p>
+                        <strong>Explorar proyecto <b>↗</b></strong>
+                    </div>
+                </button>
+                <button class="galeria-card galeria-gastronomia" id="abrirGastronomiaInicio" type="button">
+                    <span class="galeria-numero">02</span>
+                    <div class="galeria-visual visual-gastronomia">
+                        <img alt="Proyecto de fotografía gastronómica" src="img/fresa.png" />
+                    </div>
+                    <div class="galeria-info">
+                        <span>Fotografía gastronómica</span>
+                        <h2>Sabor visual</h2>
+                        <p>Luz, textura y color convertidos en una experiencia culinaria.</p>
+                        <strong>Explorar proyecto <b>↗</b></strong>
+                    </div>
+                </button>
+                <button class="galeria-card galeria-retrato" id="abrirRetrato" type="button">
+                    <span class="galeria-numero">03</span>
+                    <div class="galeria-visual visual-retrato">
+                        <img src="img/retrato-primero.jpg" alt="Retrato"  />
+                    </div>
+                    <div class="galeria-info">
+                        <span>Fotografía de retrato</span>
+                        <h2>Descubre la magia de la fotografia</h2>
+                        <p>Una mirada centrada en identidad, expresión y presencia.</p>
+                        <strong>Ver avance <b>↗</b></strong>
+                    </div>
+                </button>
+            </div>
+        </section>
+        <footer class="inicio-pie">
+            <span>EXPOVISUAL</span>
+            <p>Una interfaz, tres recorridos.</p>
+        </footer>
+    </main>
+    <main class="pantalla portada oculto con-navegacion" id="portadaProducto">
+        <div class="luz-mouse" id="luzMouse"></div>
+        <span class="burbuja burbuja-1"></span>
+        <span class="burbuja burbuja-2"></span>
+        <span class="burbuja burbuja-3"></span>
+        <header class="cabecera">
+            <div class="marca">
+                <img alt="Logo Galletas Amor" class="logo-portada" id="logoPortada" src="img/expo@2400x.png" />
+                <div>
+                    <p class="nombre-marca">
+                        Galletas Amor
+                    </p>
+                    <span>
+                        Fotografía comercial
+                    </span>
+                </div>
+            </div>
+            <button class="boton-menu-global" id="volverMenuDesdeProducto" type="button">← Inicio</button>
+        </header>
+        <section class="contenido-portada">
+            <div class="texto-portada">
+                <span class="etiqueta">
+                    Fotografía de producto
+                </span>
+                <h1>
+                    Descubre nuestros
+                    <strong>sabores</strong>
+                </h1>
+                <p class="descripcion">
+                    Explora los cinco sabores de Galletas Amor
+                    y prueba cada composición con diferentes fondos.
+                </p>
+                <button class="boton-principal" id="botonExplorar" type="button">
+                    Explorar sabores
+                    <span>→</span>
+                </button>
+                <button class="siguiente-proyecto" id="irGastronomia" type="button">
+                    <span class="texto-siguiente">
+                        Siguiente proyecto
+                    </span>
+                    <strong>
+                        Fotografía gastronómica
+                    </strong>
+                    <span class="flecha-siguiente">
+                        ↓
+                    </span>
+                </button>
+            </div>
+            <div class="zona-logo-principal">
+                <div class="resplandor"></div>
+                <img alt="Galletas Amor" class="logo-gigante" id="logoGigante" src="img/logo-amor.png" />
+                <p class="mensaje-mouse">
+                    Mueve el mouse para interactuar
+                </p>
+            </div>
+        </section>
+    </main>
+    <!-- ===================================
+         2. PANTALLA DE SABORES
+    ==================================== -->
+    <section class="pantalla pantalla-sabores oculto con-navegacion" id="pantallaSabores">
+        <header class="cabecera-sabores">
+                        <button class="boton-volver" id="volverPortada" type="button">← Galletas Amor</button>
+            <div class="titulo-sabores">
+                <span>Galletas Amor</span>
+                <h2>Elige un sabor</h2>
+                <p>
+                    Haz clic en un empaque para abrir
+                    su composición fotográfica.
+                </p>
+            </div>
+            <button class="boton-menu-global boton-menu-claro" id="volverMenuDesdeSabores" type="button">←
+                Inicio</button>
+        </header>
+        <div class="carrusel-sabores">
+            <button aria-label="Sabor anterior" class="flecha-carrusel" id="flechaIzquierda" type="button">
+                ❮
+            </button>
+            <div class="ventana-carrusel">
+                <div class="pista-carrusel" id="pistaCarrusel">
+                    <button class="tarjeta-carrusel" data-imagen="img/naranja-amor-completo.png" data-sabor="naranja"
+                        type="button">
+                        <img alt="Galletas Amor sabor naranja" src="img/amor.naranja.png" />
+                        <span>Naranja</span>
+                    </button>
+                    <button class="tarjeta-carrusel" data-imagen="img/chocolate-amor-completo.png"
+                        data-sabor="chocolate" type="button">
+                        <img alt="Galletas Amor sabor chocolate" src="img/amor-chocolate.png" />
+                        <span>Chocolate</span>
+                    </button>
+                    <button class="tarjeta-carrusel" data-imagen="img/fresa-amor-amor.png" data-sabor="fresa"
+                        type="button">
+                        <img alt="Galletas Amor sabor fresa" src="img/amor-fresas.png" />
+                        <span>Fresa</span>
+                    </button>
+                    <button class="tarjeta-carrusel" data-imagen="img/limon.amor-amor.png" data-sabor="limon"
+                        type="button">
+                        <img alt="Galletas Amor sabor limón" src="img/amor-limon.png" />
+                        <span>Limón</span>
+                    </button>
+                    <button class="tarjeta-carrusel" data-imagen="img/vainilla-amor-completo.png" data-sabor="vainilla"
+                        type="button">
+                        <img alt="Galletas Amor sabor vainilla" src="img/amor-vainilla.png" />
+                        <span>Vainilla</span>
+                    </button>
+                </div>
+            </div>
+            <button aria-label="Siguiente sabor" class="flecha-carrusel" id="flechaDerecha" type="button">
+                ❯
+            </button>
+        </div>
+        <p class="nombre-sabor-activo" id="nombreSaborActivo">
+            Fresa
+        </p>
+        <p class="indicacion-sabores">
+            Los empaques flotan. Selecciona uno para continuar.
+        </p>
+    </section>
+    <!-- ===================================
+         3. PANTALLA DE COMPOSICIÓN
+    ==================================== -->
+    <section class="pantalla pantalla-composicion oculto con-navegacion" id="pantallaComposicion">
+        <header class="barra-composicion">
+            <button class="boton-volver" id="volverSabores" type="button">
+                ← Sabores
+            </button>
+            <div class="nombre-composicion">
+                <span>Composición fotográfica</span>
+                <h2 id="tituloSabor">
+                    Sabor Fresa
+                </h2>
+            </div>
+            <button class="boton-menu-global boton-menu-composicion" id="volverMenuDesdeComposicion" type="button">←
+                Inicio</button>
+        </header>
+        <main class="escenario" id="escenario">
+            <div class="luz-escenario"></div>
+            <img alt="Composición de Galletas Amor" class="imagen-composicion" id="imagenComposicion" src="" />
+        </main>
+        <aside class="panel-fondos" id="panelFondos">
+            <div class="encabezado-panel">
+                <div>
+                    <span>Personalización</span>
+                    <h3>Cambiar fondo</h3>
+                </div>
+                <button aria-label="Cerrar panel" class="boton-cerrar-panel" id="cerrarPanel" type="button">
+                    ×
+                </button>
+            </div>
+            <div class="colores-predeterminados">
+                <button aria-label="Fondo blanco" class="color-fondo" data-color="#ffffff" style="--color: #ffffff"
+                    type="button"></button>
+                <button aria-label="Fondo rosa" class="color-fondo" data-color="#f8d8e4" style="--color: #f8d8e4"
+                    type="button"></button>
+                <button aria-label="Fondo beige" class="color-fondo" data-color="#f4e2c7" style="--color: #f4e2c7"
+                    type="button"></button>
+                <button aria-label="Fondo celeste" class="color-fondo" data-color="#d6ecff" style="--color: #d6ecff"
+                    type="button"></button>
+                <button aria-label="Fondo verde" class="color-fondo" data-color="#dce8cb" style="--color: #dce8cb"
+                    type="button"></button>
+                <button aria-label="Fondo negro" class="color-fondo" data-color="#222222" style="--color: #222222"
+                    type="button"></button>
+            </div>
+            <div class="selector-personalizado">
+                <label for="selectorColor">
+                    Elige un color
+                </label>
+                <input id="selectorColor" type="color" value="#f8d8e4" />
+            </div>
+            <div class="campo-hexadecimal">
+                <label for="colorHex">
+                    Código hexadecimal
+                </label>
+                <div class="grupo-hex">
+                    <input id="colorHex" maxlength="7" placeholder="#F8D8E4" type="text" value="#F8D8E4" />
+                    
+                </div>
+                <p class="mensaje-error oculto" id="mensajeError">
+                    Escribe un color válido, por ejemplo #F8D8E4
+                </p>
+            </div>
+        </aside>
+        <div class="barra-flotante-fondo">
+            <button class="abrir-panel-fondos" id="abrirPanelFondos" type="button">
+                Cambiar fondo
+            </button>
+
+            <div class="menu-opciones-avanzadas" id="menuOpcionesAvanzadas">
+                <button class="boton-engranaje" id="botonEngranaje" type="button" aria-label="Más opciones"
+                    aria-haspopup="true" aria-expanded="false">
+                    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="3"></circle>
+                        <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                    </svg>
+                </button>
+
+                <div class="desplegable-avanzado oculto" id="desplegableAvanzado">
+                    <button class="opcion-avanzada" id="botonOpcionesAvanzadas" type="button">
+                        Opciones avanzadas
+                        <span>↗</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ===================================
+         4. PANTALLA DE GASTRONOMÍA
+    ==================================== -->
+    <section class="pantalla pantalla-gastronomia oculto con-navegacion" id="pantallaGastronomia">
+        <div class="contenedor-particulas" id="contenedorParticulas"></div>
+        <header class="cabecera-gastronomia">
+            <button class="boton-volver gastronomia-volver" id="volverDesdeGastronomia" type="button">← Inicio</button>
+            <p class="expovisual expovisual-gastronomia">
+                EXPOVISUAL
+            </p>
+        </header>
+        <main class="contenido-gastronomia">
+            <div class="texto-gastronomia">
+                <span class="etiqueta-gastronomia">
+                    Fotografía gastronómica
+                </span>
+                <h1>
+                    El sabor también
+                    <strong>se observa</strong>
+                </h1>
+                <p>
+                    Una cmposicion gastronomica hecha con yogurt y cereales 
+                </p>
+                <button class="boton-ver-fotografia" id="verFotografiaGastronomica" type="button">
+                    Ver fotografía
+                    <span>→</span>
+                </button>
+            </div>
+            <div class="vista-previa-gastronomia">
+                <div class="marco-gastronomia" id="marcoGastronomia">
+                    <img alt="Fotografía gastronómica" id="imagenGastronomia" src="img/fresa.png" />
+                </div>
+                <span class="indicacion-gastronomia">
+                    Fotografía gastronómica · EXPOVISUAL
+                </span>
+            </div>
+        </main>
+    </section>
+    <section aria-hidden="true" class="visor-gastronomia" id="visorGastronomia">
+        <div class="visor-fondo" id="cerrarVisorFondo"></div>
+        <button aria-label="Cerrar fotografía" class="cerrar-visor-gastronomia" id="cerrarVisorGastronomia"
+            type="button">
+            ×
+        </button>
+        <div class="visor-contenido">
+            <span class="visor-etiqueta">
+                Fotografía gastronómica
+            </span>
+            <img alt="Fotografía gastronómica ampliada" class="foto-gastronomica-ampliada" id="fotoGastronomicaAmpliada"
+                src="img/gastronomia.png" />
+            <p class="visor-ayuda">
+                Presiona Esc o la × para volver
+            </p>
+        </div>
+    </section>
+    <div id="modoPantallaCompleta" class="modo-pantalla-completa oculto">
+
+        <div class="contenedor-pantalla-completa">
+
+            <img id="imagenPantallaCompleta" class="imagen-pantalla-completa" src="" alt="">
+
+            <aside class="panel-fondos panel-fondos-full">
+
+                <!-- aquí luego moveremos la barra de cambiar fondo -->
+
+            </aside>
+
+        </div>
+
+    </div>
+<!-- ===================================
+     5. PANTALLA DE RETRATO CINEMATOGRÁFICO
+==================================== -->
+<section class="pantalla pantalla-retrato oculto con-navegacion" id="pantallaRetrato">
+    <!-- Capa de grano cinematográfico -->
+    <div class="retrato-grano"></div>
+    
+    <!-- Luces de fondo estilo cine -->
+    <div class="retrato-luz-cine luz-cine-1"></div>
+    <div class="retrato-luz-cine luz-cine-2"></div>
+    
+    <!-- Cabecera -->
+    <header class="cabecera-retrato">
+        <button class="boton-volver retrato-volver" id="volverDesdeRetrato" type="button">← Inicio</button>
+        <p class="expovisual expovisual-retrato">EXPOVISUAL</p>
+    </header>
+
+    <!-- Contenido principal -->
+    <main class="contenido-retrato-cine">
+        <!-- Columna izquierda: Texto -->
+        <div class="texto-retrato-cine">
+            <span class="etiqueta-retrato-cine">✦ Retrato fotográfico</span>
+            <h1>
+                Identidad en 
+                <strong>A TRAVEZ DEL LENTE</strong>
+            </h1>
+            <p>
+                Este proyecto nació de la colaboración con mis compañeros.
+                Cada retrato es una historia, una conexión, un instante 
+                compartido frente a la cámara.
+            <button class="boton-ver-retrato" id="verRetratoCompleto" type="button">
+                Ver fotografía
+                <span>→</span>
+            </button>
+        </div>
+
+        <!-- Columna derecha: La foto con marco cinematográfico -->
+        <div class="vista-retrato-cine">
+            <div class="marco-retrato-cine" id="marcoRetratoCine">
+                <!-- Badge de cine -->
+                <div class="cine-badge">✧ Compañeros ✧</div>
+                
+                
+                <img 
+                    alt="Retrato cinematográfico" 
+                    id="imagenRetratoCine" 
+                    src="img/retrato-principal.JPG" 
+                />
+                
+                <!-- Overlay de viñeta (oscurece bordes) -->
+                <div class="viñeta-cine"></div>
+                
+                <!-- Línea de subtítulos al estilo de cine -->
+                <div class="subtitulo-cine">
+                    <span>Fotografía y edición · EXPOVISUAL  |  2026</span>
+                </div>
+            </div>
+            
+            <!-- Indicación -->
+            <span class="indicacion-retrato-cine">
+                Hecho con ❤ por el equipo
+            </span>
+        </div>
+    </main>
+
+    <!-- Barra inferior con información -->
+    <footer class="pie-retrato-cine">
+        <span>EXPOVISUAL</span>
+        <span>Una mirada, una historia</span>
+        <span>2026</span>
+    </footer>
+</section>
+
+
+<div class="visor-retrato-cine" id="visorRetratoCine">
+    <div class="visor-retrato-fondo-cine" id="cerrarVisorFondoCine"></div>
+    <button class="cerrar-visor-retrato-cine" id="cerrarVisorRetratoCine" type="button">×</button>
+    <div class="visor-retrato-contenido-cine">
+        <span class="visor-retrato-etiqueta-cine">✦ RETRATO · EXPOVISUAL</span>
+        <img 
+            alt="Retrato ampliado" 
+            class="foto-retrato-ampliada-cine" 
+            id="fotoRetratoAmpliadaCine" 
+            src="img/retrato-principal.JPG" 
+        />
+        <p class="visor-retrato-ayuda-cine">Presiona Esc o la × para cerrar</p>
+    </div>
+</div>
+    <script src="script.js"></script>
+</body>
+
+</html>
