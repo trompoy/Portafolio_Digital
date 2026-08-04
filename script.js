@@ -1,4 +1,3 @@
-// ⚠️ EDITA ESTA LÍNEA: coloca aquí la ruta o URL real del editor de imagen (EXPOVISUAL)
 const URL_EDITOR_IMAGEN = "editor-imagen/index.html";
 
 document.addEventListener("DOMContentLoaded", () => {
